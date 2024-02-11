@@ -1,0 +1,125 @@
+.nav__menu{
+    background-color: var(--container-color);
+    position: fixed;
+    inset-block: 0;
+    left: -100%;
+    width: 100%;
+    padding: 60px 30px;
+    transition: all 0.5s cubic-bezier(0.77, 0.2, 0.175, 1);
+    z-index: 7;
+}
+.show-menu{
+    left: 0;
+}
+.nav__link{
+    display: flex;
+    align-items: center;
+    column-gap: 24px;
+    padding-block: 14px;
+}
+.nav__icon,.nav__name{
+    color: var(--title-color);
+    font-size: 24px;
+}
+.nav__name{
+    font-weight: var(--weight-500);
+}
+.active-nav .nav__icon,
+.active-nav .nav__name{
+    color: var(--first-color);
+}
+
+.nav__toggle{
+    position: fixed;
+    top: 1.875rem;
+    right: 1.875rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: .3125rem;
+    background-color: var(--container-color);
+    padding: 12px 10px;
+    z-index: 10;
+}
+.nav__toggle span{
+    height: .125rem;
+    width: 1.25rem;
+    display: block;
+    border-radius: .125rem;
+    background-color: var(--title-color);
+    margin-bottom: .3125rem;
+    
+}
+.ani-togg span:first-child{
+     transform: rotate(45deg) translate(.375rem,.25rem);
+}
+.ani-togg span:nth-child(2){
+    display: none;
+}
+.ani-togg span:last-child{
+    transform: rotate(-45deg) translate(.0625rem,.0625rem);
+}
+@media screen and (min-width:64rem){
+    .nav__menu{
+        all: unset;
+    }
+    .nav__toggle{
+        display: none;
+    }
+    .nav{
+        position: fixed;
+        inset-block: 0;
+        right: 30px;
+        display: flex;
+        align-items: center;
+        
+
+    }
+    .nav__item{
+        margin-block: 1.25rem;
+    }
+    .nav__link{
+        padding: 0;
+        border-bottom: none;
+        background-color: var(--container-color);
+        width: 3.125rem;
+        height: 3.125rem;
+        border-radius: 50%;
+        position: relative;
+    }
+    .nav__name{
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: var(--first-color);
+        line-height: 3.125rem;
+        padding-inline: 1.875rem;
+        border-radius: 1.875rem;
+        font-size: var(--small-font-size);
+        color: var(--text-white);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: -1;
+    }
+    .nav__link:hover .nav__name{
+        right: 1.75rem;
+        color: var(--text-white);
+        opacity: 1;
+        visibility: visible;
+        border-radius: 30px 0 0 30px;
+    }
+    .nav__icon{
+        font-size: 1.25rem;
+        margin-inline: auto;
+    }
+
+    .nav__link:hover,
+    .active-nav{
+        background-color: var(--first-color);
+        
+    }
+    .nav__link:hover .nav__icon,
+    .active-nav .nav__icon{
+        color: var(--text-white);
+    }
+}
